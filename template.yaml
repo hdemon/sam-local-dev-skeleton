@@ -1,14 +1,14 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Transform: AWS::Serverless-2016-10-31
 Description: >
   sam-local-dev-skeleton
 
   Sample SAM Template for sam-local-dev-skeleton
-  
+
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 10
 
 Resources:
   HelloWorldFunction:
@@ -17,6 +17,10 @@ Resources:
       CodeUri: hello-world/
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
+      Environment:
+        Variables:
+          DYNAMO_DB_ENDPOINT: dynamoDbEndpoint,
+          DYNAMO_DB_REGION: dynamoDbRegion,
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api

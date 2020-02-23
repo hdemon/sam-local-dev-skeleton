@@ -1,0 +1,6 @@
+{
+  "HelloWorldFunction": {
+    "DYNAMO_DB_ENDPOINT": "http://host.docker.internal:8000",
+    "REGION": "local"
+  }
+}

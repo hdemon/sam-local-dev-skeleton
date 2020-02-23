@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  dynamodb:
+    image: amazon/dynamodb-local:latest
+    ports:
+      - "8000:8000"
+    # sharedDb をつけることで、異なるアプリケーションから共通のDBを参照できる。つけない場合は、access key IDとregionごとに異なるDBを持つことになる。
+    # オプションについて: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.UsageNotes.html
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb"]
